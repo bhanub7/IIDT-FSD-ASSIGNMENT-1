@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Form with Validation</title>
+    <style>
+      h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 40px;
+        margin-left: 300px;
+      }
+      input,
+      select {
+        margin-bottom: 10px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 5px;
+      }
+
+      .success-message {
+        color: green;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Form Validation using JavaScript</h1>
+    <form id="myForm">
+      <input type="text" id="name" name="name" placeholder="Your Name" />
+      <div id="nameError" class="error-message"></div>
+
+      <input type="email" id="email" name="email" placeholder="Your Email" />
+      <div id="emailError" class="error-message"></div>
+
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Your Password"
+      />
+      <div id="passwordError" class="error-message"></div>
+
+      <select id="country" name="country">
+        <option value="">Select Country</option>
+        <option value="India">India</option>
+        <option value="Canada">Canada</option>
+        <option value="UK">UK</option>
+      </select>
+      <div id="countryError" class="error-message"></div>
+
+      <input type="submit" value="Submit" />
+      <div id="successMessage" class="success-message"></div>
+    </form>
+
+    <script>
+      const form = document.getElementById('myForm')
+      const nameInput = document.getElementById('name')
+      const emailInput = document.getElementById('email')
+      const passwordInput = document.getElementById('password')
+      const countryInput = document.getElementById('country')
+      const nameError = document.getElementById('nameError')
+      const emailError = document.getElementById('emailError')
+      const passwordError = document.getElementById('passwordError')
+      const countryError = document.getElementById('countryError')
+      const successMessage = document.getElementById('successMessage')
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault()
+        clearErrors()
+
+        if (!nameInput.value.trim()) {
+          showError(nameError, 'Please enter your name')
+        }
+
+        if (!emailInput.value.trim()) {
+          showError(emailError, 'Please enter your email')
+        } else if (!isValidEmail(emailInput.value.trim())) {
+          showError(emailError, 'Please enter a valid email')
+        }
+
+        if (!passwordInput.value.trim()) {
+          showError(passwordError, 'Please enter your password')
+        } else if (passwordInput.value.trim().length < 6) {
+          showError(passwordError, 'Password must be at least 6 characters')
+        }
+
+        if (!countryInput.value) {
+          showError(countryError, 'Please select your country')
+        }
+
+        if (
+          !nameError.innerText &&
+          !emailError.innerText &&
+          !passwordError.innerText &&
+          !countryError.innerText
+        ) {
+          showSuccess('Form submitted successfully!')
+        }
+      })
+
+      function showError(element, message) {
+        element.innerText = message
+      }
+
+      function showSuccess(message) {
+        successMessage.innerText = message
+      }
+
+      function clearErrors() {
+        nameError.innerText = ''
+        emailError.innerText = ''
+        passwordError.innerText = ''
+        countryError.innerText = ''
+        successMessage.innerText = ''
+      }
+
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return emailRegex.test(email)
+      }
+    </script>
+  </body>
+</html>

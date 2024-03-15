@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2ecc71;
+        --background-color: #f1f1f1;
+        --text-color: #333;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .card {
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 10px;
+        flex: 1 1 300px;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .card-description {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .card-button {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .card-button:hover {
+        background-color: darken(var(--secondary-color), 10%);
+      }
+
+      @media screen and (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card {
+          flex: 1 1 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Portfolio</h1>
+    </header>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">PacMan game</h2>
+          <p class="card-description">
+            While learning the frontend development you might think that it is
+            not easy to build a big app or any game by just using ReactJS. But
+            you can easily create many games with the help of ReactJS. In the
+            PacMan game it includes classic features like the maze, pellets, and
+            ghosts, and learn some cool React stuff along the way. The game will
+            be easy to play with arrow keys, and we’ll add extras like keeping
+            score and power pellets. It’s like bringing the old Pacman joy into
+            today’s browsers with a modern twist! Just click “Start” and enjoy.
+          </p>
+          <button class="card-button">View Project</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">ToDo list</h2>
+          <p class="card-description">
+            Building ToDo application is the most basic project to test the
+            knowledge of React. It will covers all the basic concept which a
+            beginner should know while learning is covered. To duplicate the
+            original, go into as much detail as possible. To style the
+            application this application uses React-Bootstrap. This to-do list
+            can add new tasks we can also delete the tasks by clicking on them.
+          </p>
+          <button class="card-button">View Project</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">Typing Speed Tester</h2>
+          <p class="card-description">
+            When you are new in the development field on started using computers
+            and laptop your speed of typing from the keyboard is very slow. You
+            need to usedto to the keyboard and find different methods to
+            increase your typing speed. Typing Speed Tester app will definitely
+            reduces some of your effort by tracking your typing speed and
+            motivates you to improve it. Typing Speed Tester will provides a
+            random paragraph for the user to type as accurately and quickly as
+            possible within a fixed time limit of one minute.
+          </p>
+          <button class="card-button">View Project</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">JavaScript Music Player</h2>
+          <p class="card-description">
+            JavaScript Music Player can be a feasible choice. Everyone should
+            focus on expanding the application’s functionality as a new
+            JavaScript developer, but design and user-experience decisions
+            become more difficult to make without fundamental graphics and
+            architecture in place. So, here’s the architecture, which is divided
+            into three thematic buckets
+          </p>
+          <button class="card-button">View Project</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
